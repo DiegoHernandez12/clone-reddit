@@ -2,6 +2,7 @@ package com.clone.service.categories.controllers;
 
 import com.clone.service.categories.dtos.SubCategoryDTO;
 import com.clone.service.categories.services.SubCategoryService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,7 +26,7 @@ public class SubCategoryController {
    }
 
     @PostMapping
-    public ResponseEntity<SubCategoryDTO>create(@RequestBody SubCategoryDTO subCategoryDTO){
+    public ResponseEntity<SubCategoryDTO>create(@Valid @RequestBody SubCategoryDTO subCategoryDTO){
         return ResponseEntity.status(HttpStatus.CREATED).body(subCategoryService.create(subCategoryDTO));
     }
 
